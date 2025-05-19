@@ -1,0 +1,255 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #f44336;
+    --background-color: #121212;
+    --tile-color: #2d3748;
+    --tile-hover: #3c4a62;
+    --text-color: #FFFFFF;
+    --profit-color: #48bb78;
+    --loss-color: #e53e3e;
+    --diamond-color: #38b2ac;
+    --mine-color: #f56565;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+
+
+
+  .setup-container, .game-container {
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    margin-bottom: 30px;
+     color: #FFD700;
+    font-size: 24px;
+} 
+
+.setup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #ddd;
+}
+
+.input-group input, .input-group select {
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2d3748;
+    color: white;
+    font-size: 16px;
+}
+
+.input-group input:focus, .input-group select:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+.error-message {
+    color: var(--loss-color);
+    font-size: 14px;
+    height: 18px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #2A2A2A;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.info-box {
+    text-align: center;
+    flex: 1;
+}
+
+.info-box span:first-child {
+    display: block;
+    font-size: 14px;
+    color: #AAA;
+    margin-bottom: 5px;
+}
+
+.info-box span:last-child {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: #1a202c;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.tile {
+    aspect-ratio: 1/1;
+    background-color: var(--tile-color);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.tile:hover {
+    background-color: var(--tile-hover);
+    transform: translateY(-2px);
+}
+
+.tile-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diamond-image, .mine-image {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+.diamond-revealed {
+    background-color: rgba(56, 178, 172, 0.2);
+    border: 2px solid var(--diamond-color);
+}
+
+.mine-revealed {
+    background-color: rgba(245, 101, 101, 0.2);
+    border: 2px solid var(--mine-color);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #2d3748;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #3c4a62;
+    transform: translateY(-2px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background-color: #2A2A2A;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.modal p {
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+@media (max-width: 600px) {
+    .game-board {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .game-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+}
+
+
+

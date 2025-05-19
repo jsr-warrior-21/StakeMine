@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stake Mine - Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <audio
+      id="clickSound"
+      src="./music/mixkit-males-yes-victory-2012.wav"
+      preload="auto"
+    ></audio>
+    <audio
+      id="winSound"
+      src="./music/mixkit-video-game-win-2016.wav"
+      preload="auto"
+    ></audio>
+    <audio
+      id="loseSound"
+      src="./music/mixkit-retro-arcade-lose-2027.wav"
+      preload="auto"
+    ></audio>
+    <audio
+      id="cashoutSound"
+      src="./music/mixkit-melodic-gold-price-2000.wav"
+      preload="auto"
+    ></audio>
+
+    <div class="game-container">
+      <h1>Stake Mine</h1>
+
+      <div class="game-info">
+        <div class="info-box">
+          <span>Bet:</span>
+          <span id="currentBet">$10</span>
+        </div>
+        <div class="info-box">
+          <span>Profit:</span>
+          <span id="profit">$0</span>
+        </div>
+        <div class="info-box">
+          <span>Multiplier:</span>
+          <span id="multiplier">1.00x</span>
+        </div>
+      </div>
+
+      <div class="game-board" id="gameBoard"></div>
+
+      <div class="controls">
+        <button id="cashOutBtn" class="btn-primary">Cash Out</button>
+        <button id="newGameBtn" class="btn-secondary">New Game</button>
+      </div>
+    </div>
+
+    <div class="modal" id="resultModal">
+      <div class="modal-content">
+        <h2 id="resultTitle">Game Over!</h2>
+        <p id="resultMessage">You hit a mine and lost your bet.</p>
+        <button id="playAgainBtn" class="btn-primary">Play Again</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
